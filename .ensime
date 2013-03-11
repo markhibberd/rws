@@ -1,0 +1,46 @@
+;; If your project contains a lot of files, it is advisable to enable (:disable-source-load-on-startup t)
+;; Otherwise Ensime might incur a massive lag at startup time
+;; See more information about that at http://aemoncannon.github.com/ensime/index.html
+
+(
+  :subprojects (
+    (
+      :name "rws"
+      :module-name "rws"
+      :depends-on-modules (
+      
+      )
+      :package "rws"
+      :version "0.1-SNAPSHOT"
+      :compile-deps (
+        "/Users/mth/.sbt/0.12.1/boot/scala-2.10.0/lib/scala-library.jar"
+        "/Users/mth/.ivy2/cache/org.scalaz/scalaz-core_2.10/bundles/scalaz-core_2.10-7.0.0-M8.jar"
+      )
+      :runtime-deps (
+        "/Users/mth/.sbt/0.12.1/boot/scala-2.10.0/lib/scala-library.jar"
+        "/Users/mth/.ivy2/cache/org.scalaz/scalaz-core_2.10/bundles/scalaz-core_2.10-7.0.0-M8.jar"
+        "/Users/mth/home/rws/target/scala-2.10/classes"
+        "/Users/mth/home/rws/target/scala-2.10/classes"
+      )
+      :test-deps (
+        "/Users/mth/.sbt/0.12.1/boot/scala-2.10.0/lib/scala-library.jar"
+        "/Users/mth/.ivy2/cache/org.scalaz/scalaz-core_2.10/bundles/scalaz-core_2.10-7.0.0-M8.jar"
+        "/Users/mth/.ivy2/cache/org.scalacheck/scalacheck_2.10/jars/scalacheck_2.10-1.10.0.jar"
+        "/Users/mth/.ivy2/cache/org.scala-tools.testing/test-interface/jars/test-interface-0.5.jar"
+        "/Users/mth/.ivy2/cache/org.scala-lang/scala-actors/jars/scala-actors-2.10.0.jar"
+        "/Users/mth/home/rws/target/scala-2.10/classes"
+        "/Users/mth/home/rws/target/scala-2.10/test-classes"
+      )
+      :source-roots (
+        "/Users/mth/home/rws/src/main/scala"
+        "/Users/mth/home/rws/src/main/java"
+        "/Users/mth/home/rws/target/scala-2.10/src_managed/main"
+        "/Users/mth/home/rws/src/test/scala"
+        "/Users/mth/home/rws/src/test/java"
+        "/Users/mth/home/rws/target/scala-2.10/src_managed/test"
+      )
+      :target "/Users/mth/home/rws/target/scala-2.10/classes"
+      :test-target "/Users/mth/home/rws/target/scala-2.10/test-classes"
+    )
+  )
+)
