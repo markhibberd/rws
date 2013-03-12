@@ -7,3 +7,14 @@ libraryDependencies ++= Seq(
   "com.twitter" %% "finagle-core" % "6.2.0",
   "org.scalacheck" %% "scalacheck" % "1.10.0" % "test"
 )
+
+scalacOptions ++= Seq(
+  "-deprecation",
+  "-unchecked",
+  "-optimise",
+  "-Yinline-warnings",
+  "-feature",
+  "-language:implicitConversions",
+  "-language:higherKinds",
+  "-language:postfixOps"
+)
