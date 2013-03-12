@@ -7,4 +7,8 @@ object LawsProp extends Properties("Laws") {
 
   property("Addition commutes") = forAll(
     (x: Int, y: Int) => addition(x, y) == addition(y, x))
+
+  property("Addition associative on doubles") = forAll(
+    (x: Double, y: Double, z: Double) => (x + y) + z == x + (y + z))
+
 }
