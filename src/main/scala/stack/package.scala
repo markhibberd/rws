@@ -1,5 +1,5 @@
 /*
- * This package contains code samples used to demonstrate
+ * This package code samples used to demonstrate
  * concepts in the slides.
  *
  * The code primarily exists to make sure my
@@ -7,5 +7,5 @@
  * be incoherent and largely incomplete).
  *
  */
-package object concept {
+package object stack {
 }
