@@ -1,37 +1,33 @@
-package cheat.reader
+package live.reader
 
 import scalaz._
 
 case class Reader[R, A](run: R => A) {
   def map[B](f: A => B): Reader[R, B] =
-    flatMap(a => Reader.value(f(a)))
+    ???
 
   def flatMap[B](f: A => Reader[R, B]): Reader[R, B] =
-    Reader(r => f(run(r)).run(r))
+    ???
 }
 
 object Reader {
   def value[R, A](a: => A): Reader[R, A] =
-    Reader(_ => a)
+    ???
 
   def ask[R]: Reader[R, R] =
-    Reader(r => r)
+    ???
 
   def local[R, A](f: R => R)(reader: Reader[R, A]): Reader[R, A] =
-    Reader(r => reader.run(f(r)))
+    ???
 
   implicit def ReaderMonad[R]: Monad[PartialReader[R]#t] = new Monad[PartialReader[R]#t] {
-    def point[A](a: => A): Reader[R, A] = value(a)
-    def bind[A, B](r: Reader[R, A])(f: A => Reader[R, B]) = r flatMap f
+    def point[A](a: => A): Reader[R, A] = ???
+    def bind[A, B](r: Reader[R, A])(f: A => Reader[R, B]) = ???
   }
 
-  implicit def ReaderMonoid[R, A](implicit A: Monoid[A]): Monoid[Reader[R, A]] =
-      new Monoid[Reader[R, A]] {
-    def zero: Reader[R, A] = value[R, A](A.zero)
-    def append(a: Reader[R, A], b: => Reader[R, A]) = for {
-      aa <- a
-      bb <- b
-    } yield A.append(aa, bb)
+  implicit def ReaderMonoid[R, A](implicit A: Monoid[A]): Monoid[Reader[R, A]] = new Monoid[Reader[R, A]] {
+    def zero: Reader[R, A] = ???
+    def append(a: Reader[R, A], b: => Reader[R, A]) = ???
   }
 
   private class PartialReader[R] {
