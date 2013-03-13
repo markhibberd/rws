@@ -1,9 +1,16 @@
 package live.readert
 
-case class ReaderT[M[_], R, A](run: R => M[A]) {
-  def map[B](f: A => B): ReaderT[M, R, A] =
-    ???
+import scalaz._, Scalaz._
 
-  def flatMap[B](f: A => ReaderT[M, R, B]): ReaderT[M, R, B] =
+case class ReaderT[M[_], R, A](run: R => M[A]) {
+  def map[B](f: A => B)(implicit M: Monad[M]): ReaderT[M, R, B] =
+    flatMap(a => ReaderT.value(f(a)))
+
+  def flatMap[B](f: A => ReaderT[M, R, B])(implicit M: Monad[M]): ReaderT[M, R, B] =
     ???
+}
+
+object ReaderT {
+  def value[M[_]: Monad, R, A](a: => A): ReaderT[M, R, A] =
+    ReaderT(_ => a.point[M])
 }

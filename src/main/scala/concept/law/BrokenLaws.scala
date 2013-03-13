@@ -1,6 +1,5 @@
 package concept.law
 
-// Don't try this at home
 object BrokenLaws {
   trait Monoid[F] {
     def zero: F
@@ -26,13 +25,19 @@ object BrokenLaws {
 object ContractKiller {
   import BrokenLaws._
 
+  def print(s: String) = {
+    println("==================================")
+    println(s)
+    println("==================================")
+  }
+
   def transactions = List(-8.988465674311579E307, 8.988465674311579E307, 1.0)
 
   def main(args: Array[String]) {
     val owing = reduce(transactions)
     if (owing > 0.0)
-      println("bang, your dead, your account balance was %.2f!!!".format(owing))
+      print("bang, your dead!!!")
     else
-      println("have a nice day, your account balance was %.2f.".format(owing))
+      print("have a nice day")
   }
 }
